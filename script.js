@@ -1,14 +1,28 @@
-// Função para abrir o modal com informações do prato
-function abrirModal(titulo, descricao, imagem) {
-    document.getElementById('modalTitulo').innerText = titulo;
-    document.getElementById('modalDescricao').innerText = descricao;
-    document.getElementById('modalImg').src = imagem;
-    document.getElementById('modal').style.display = 'block';
-    document.getElementById('overlay').style.display = 'block';
-}
+let slideIndex = 0;
 
-// Função para fechar o modal
-function fecharModal() {
-    document.getElementById('modal').style.display = 'none';
-    document.getElementById('overlay').style.display = 'none';
+function mudarSlide(n) {
+  const slidesContainer = document.querySelector('.slides');
+  const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length;
+  
+  // Define quantos slides serão exibidos com base na largura da tela
+  const slidesPerView = window.innerWidth > 768 ? 3 : 1;
+  const maxIndex = totalSlides - slidesPerView;
+  
+  slideIndex += n;
+  if (slideIndex < 0) {
+    slideIndex = maxIndex;
+  }
+  if (slideIndex > maxIndex) {
+    slideIndex = 0;
+  }
+  
+  // Calcula o deslocamento em pixels levando em conta a largura do slide e o gap
+  const slide = slides[0];
+  const slideWidth = slide.offsetWidth;
+  // Pega o gap definido na propriedade CSS (ou 0 se não estiver definido)
+  const gap = parseInt(getComputedStyle(slidesContainer).gap) || 0;
+  const effectiveWidth = slideWidth + gap;
+  
+  slidesContainer.style.transform = `translateX(-${slideIndex * effectiveWidth}px)`;
 }
