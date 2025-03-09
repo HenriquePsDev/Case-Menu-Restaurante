@@ -7,451 +7,281 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- Barra de navegação -->
-  <nav>
-    <ul>
-      <li><a href="#entradas">Entradas</a></li>
-      <li><a href="#principais">Pratos Principais</a></li>
-      <li><a href="#sobremesas">Sobremesas</a></li>
-      <li><a href="#bebidas">Bebidas</a></li>
-    </ul>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">Menu Italiano</a>
+      <ul class="nav-links">
+        <li><a href="#destaques">Destaques</a></li>
+        <li><a href="#entradas">Entradas</a></li>
+        <li><a href="#principais">Pratos Principais</a></li>
+        <li><a href="#sobremesas">Sobremesas</a></li>
+        <li><a href="#bebidas">Bebidas</a></li>
+      </ul>
+      <button class="menu-btn" aria-label="Menu">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+    <!-- Dropdown para mobile -->
+    <div class="dropdown-menu">
+      <ul>
+        <li><a href="#destaques">Destaques</a></li>
+        <li><a href="#entradas">Entradas</a></li>
+        <li><a href="#principais">Pratos Principais</a></li>
+        <li><a href="#sobremesas">Sobremesas</a></li>
+        <li><a href="#bebidas">Bebidas</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <!-- Seção destaques-->
-  <section id="destaques">
-    <div class="carrossel">
-      <h2>Destaques</h2>
-      <div class="slides">
-        <div class="slide">
-          <img src="img/download.jpg" alt="Imagem 1">
-        </div>
-        <div class="slide">
-          <img src="img/download.jpg" alt="Imagem 2">
-        </div>
-        <div class="slide">
-          <img src="img/download.jpg" alt="Imagem 3">
-        </div>
-        <div class="slide">
-          <img src="img/download.jpg" alt="Imagem 4">
-        </div>
-        <div class="slide">
-          <img src="img/download.jpg" alt="Imagem 5">
+  <!-- Conteúdo Principal -->
+  <main>
+    <!-- Seção Destaques (Carrossel) -->
+    <section id="destaques" class="section-highlights">
+      <div class="container">
+        <h2>Destaques</h2>
+        <div class="carousel">
+          <div class="slides">
+            <div class="slide"><img src="img/panna_Easy-Resize.com.jpg" alt="Prato destaque 1"></div>
+            <div class="slide"><img src="img/43225_Easy-Resize.com.jpg" alt="Prato destaque 2"></div>
+            <div class="slide"><img src="img/panna_Easy-Resize.com.jpg" alt="Prato destaque 3"></div>
+            <div class="slide"><img src="img/download.jpg" alt="Prato destaque 4"></div>
+            <div class="slide"><img src="img/download.jpg" alt="Prato destaque 5"></div>
+          </div>
+          <button class="prev" aria-label="Anterior">&#10094;</button>
+          <button class="next" aria-label="Próximo">&#10095;</button>
         </div>
       </div>
-      <button class="prev" onclick="mudarSlide(-1)">&#10094;</button>
-      <button class="next" onclick="mudarSlide(1)">&#10095;</button>
-    </div>
-  </section> 
+    </section>
 
-  <!-- Seção Entradas -->
-  <section id="entradas">
-    <div class="container">
-      <h2>Entradas</h2>
-      <div class="grid">
-        <!-- 8 itens de Entrada -->
-        <div class="item">
-          <div class="descricao">
-            <h3>Bruschetta</h3>
-            <p>Torrada com tomate, alho e manjericão.</p>
-            <p class="preco">R$ 19,90</p>
+    <!-- Seção Entradas -->
+    <section id="entradas" class="section-menu">
+      <div class="container">
+        <h2>Entradas</h2>
+        <div class="grid">
+          <div class="item">
+            <div class="details">
+              <h3>Bruschetta</h3>
+              <p>Torrada com tomate, alho e manjericão.</p>
+              <p class="price">R$ 19,90</p>
+            </div>
+            <div class="image">
+              <img src="img/43225_Easy-Resize.com.jpg" alt="Bruschetta">
+            </div>
           </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Bruschetta">
+          <div class="item">
+            <div class="details">
+              <h3>Salada Caprese</h3>
+              <p>Tomate, mussarela e manjericão.</p>
+              <p class="price">R$ 22,00</p>
+            </div>
+            <div class="image">
+              <img src="img/download.jpg" alt="Salada Caprese">
+            </div>
           </div>
-        </div>
-        <!-- Repita o bloco abaixo 7 vezes (exemplo com placeholder) -->
-        <div class="item">
-          <div class="descricao">
-            <h3>Item 2</h3>
-            <p>Descrição do item 2.</p>
-            <p class="preco">R$ 20,00</p>
+          <div class="item">
+            <div class="details">
+              <h3>Salada Caprese</h3>
+              <p>Tomate, mussarela e manjericão.</p>
+              <p class="price">R$ 22,00</p>
+            </div>
+            <div class="image">
+              <img src="img/download.jpg" alt="Salada Caprese">
+            </div>
           </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Item 2">
+          <div class="item">
+            <div class="details">
+              <h3>Salada Caprese</h3>
+              <p>Tomate, mussarela e manjericão.</p>
+              <p class="price">R$ 22,00</p>
+            </div>
+            <div class="image">
+              <img src="img/download.jpg" alt="Salada Caprese">
+            </div>
           </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Item 3</h3>
-            <p>Descrição do item 3.</p>
-            <p class="preco">R$ 21,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Item 3">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Item 4</h3>
-            <p>Descrição do item 4.</p>
-            <p class="preco">R$ 22,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Item 4">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Item 5</h3>
-            <p>Descrição do item 5.</p>
-            <p class="preco">R$ 23,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Item 5">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Item 6</h3>
-            <p>Descrição do item 6.</p>
-            <p class="preco">R$ 24,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Item 6">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Item 7</h3>
-            <p>Descrição do item 7.</p>
-            <p class="preco">R$ 25,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Item 7">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Item 8</h3>
-            <p>Descrição do item 8.</p>
-            <p class="preco">R$ 26,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Item 8">
-          </div>
+          <!-- Adicione mais itens conforme necessário -->
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Seção Pratos Principais -->
-  <section id="principais">
-    <div class="container">
-      <h2>Pratos Principais</h2>
-      <div class="grid">
-        <!-- 14 itens de Pratos Principais -->
-        <!-- Exemplo de item; repita este bloco 14 vezes, alterando os textos conforme necessário -->
-        <div class="item">
-          <div class="descricao">
-            <h3>Lasagna</h3>
-            <p>Camadas de massa, molho e queijo.</p>
-            <p class="preco">R$ 35,00</p>
+    <!-- Seção Pratos Principais -->
+    <section id="principais" class="section-menu">
+      <div class="container">
+        <h2>Pratos Principais</h2>
+        <div class="grid">
+          <div class="item">
+            <div class="details">
+              <h3>Lasagna</h3>
+              <p>Camadas de massa, molho e queijo.</p>
+              <p class="price">R$ 35,00</p>
+            </div>
+            <div class="image">
+              <img src="img/download.jpg" alt="Lasagna">
+            </div>
           </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Lasagna">
+          <div class="item">
+            <div class="details">
+              <h3>Pizza Margherita</h3>
+              <p>Massa fina, molho de tomate e queijo.</p>
+              <p class="price">R$ 30,00</p>
+            </div>
+            <div class="image">
+              <img src="img/download.jpg" alt="Pizza Margherita">
+            </div>
           </div>
+          <div class="item">
+            <div class="details">
+              <h3>Pizza Margherita</h3>
+              <p>Massa fina, molho de tomate e queijo.</p>
+              <p class="price">R$ 30,00</p>
+            </div>
+            <div class="image">
+              <img src="img/download.jpg" alt="Pizza Margherita">
+            </div>
+          </div>
+          <div class="item">
+            <div class="details">
+              <h3>Pizza Margherita</h3>
+              <p>Massa fina, molho de tomate e queijo.</p>
+              <p class="price">R$ 30,00</p>
+            </div>
+            <div class="image">
+              <img src="img/download.jpg" alt="Pizza Margherita">
+            </div>
+          </div>
+          <div class="item">
+            <div class="details">
+              <h3>Pizza Margherita</h3>
+              <p>Massa fina, molho de tomate e queijo.</p>
+              <p class="price">R$ 30,00</p>
+            </div>
+            <div class="image">
+              <img src="img/download.jpg" alt="Pizza Margherita">
+            </div>
+          </div>
+          <div class="item">
+            <div class="details">
+              <h3>Pizza Margherita</h3>
+              <p>Massa fina, molho de tomate e queijo.</p>
+              <p class="price">R$ 30,00</p>
+            </div>
+            <div class="image">
+              <img src="img/download.jpg" alt="Pizza Margherita">
+            </div>
+          </div>
+          <!-- Adicione mais itens conforme necessário -->
         </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Lasagna</h3>
-            <p>Camadas de massa, molho e queijo.</p>
-            <p class="preco">R$ 35,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Lasagna">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Lasagna</h3>
-            <p>Camadas de massa, molho e queijo.</p>
-            <p class="preco">R$ 35,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Lasagna">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Lasagna</h3>
-            <p>Camadas de massa, molho e queijo.</p>
-            <p class="preco">R$ 35,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Lasagna">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Lasagna</h3>
-            <p>Camadas de massa, molho e queijo.</p>
-            <p class="preco">R$ 35,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Lasagna">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Lasagna</h3>
-            <p>Camadas de massa, molho e queijo.</p>
-            <p class="preco">R$ 35,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Lasagna">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Lasagna</h3>
-            <p>Camadas de massa, molho e queijo.</p>
-            <p class="preco">R$ 35,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Lasagna">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Lasagna</h3>
-            <p>Camadas de massa, molho e queijo.</p>
-            <p class="preco">R$ 35,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Lasagna">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Lasagna</h3>
-            <p>Camadas de massa, molho e queijo.</p>
-            <p class="preco">R$ 35,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Lasagna">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Lasagna</h3>
-            <p>Camadas de massa, molho e queijo.</p>
-            <p class="preco">R$ 35,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Lasagna">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Lasagna</h3>
-            <p>Camadas de massa, molho e queijo.</p>
-            <p class="preco">R$ 35,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Lasagna">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Lasagna</h3>
-            <p>Camadas de massa, molho e queijo.</p>
-            <p class="preco">R$ 35,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Lasagna">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Lasagna</h3>
-            <p>Camadas de massa, molho e queijo.</p>
-            <p class="preco">R$ 35,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Lasagna">
-          </div>
-        </div>
-        <!-- (Repita mais 13 itens com conteúdo de exemplo) -->
-        <!-- ... -->
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Seção Sobremesas -->
-  <section id="sobremesas">
-    <div class="container">
-      <h2>Sobremesas</h2>
-      <div class="grid">
-        <!-- 6 itens de Sobremesas -->
-        <div class="item">
-          <div class="descricao">
-            <h3>Tiramisù</h3>
-            <p>Deliciosa sobremesa com café e creme mascarpone.</p>
-            <p class="preco">R$ 18,00</p>
+    <!-- Seção Sobremesas -->
+    <section id="sobremesas" class="section-menu">
+      <div class="container">
+        <h2>Sobremesas</h2>
+        <div class="grid">
+          <div class="item">
+            <div class="details">
+              <h3>Tiramisù</h3>
+              <p>Deliciosa sobremesa com café e creme mascarpone.</p>
+              <p class="price">R$ 18,00</p>
+            </div>
+            <div class="image">
+              <img src="img/download.jpg" alt="Tiramisù">
+            </div>
           </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Tiramisù">
+          <div class="item">
+            <div class="details">
+              <h3>Panna Cotta</h3>
+              <p>Sobremesa cremosa com calda de frutas.</p>
+              <p class="price">R$ 20,00</p>
+            </div>
+            <div class="image">
+              <img src="img/download.jpg" alt="Panna Cotta">
+            </div>
           </div>
+          <div class="item">
+            <div class="details">
+              <h3>Panna Cotta</h3>
+              <p>Sobremesa cremosa com calda de frutas.</p>
+              <p class="price">R$ 20,00</p>
+            </div>
+            <div class="image">
+              <img src="img/download.jpg" alt="Panna Cotta">
+            </div>
+          </div>
+          <div class="item">
+            <div class="details">
+              <h3>Panna Cotta</h3>
+              <p>Sobremesa cremosa com calda de frutas.</p>
+              <p class="price">R$ 20,00</p>
+            </div>
+            <div class="image">
+              <img src="img/download.jpg" alt="Panna Cotta">
+            </div>
+          </div>
+          <div class="item">
+            <div class="details">
+              <h3>Panna Cotta</h3>
+              <p>Sobremesa cremosa com calda de frutas.</p>
+              <p class="price">R$ 20,00</p>
+            </div>
+            <div class="image">
+              <img src="img/download.jpg" alt="Panna Cotta">
+            </div>
+          </div>
+          <!-- Adicione mais itens conforme necessário -->
         </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Tiramisù</h3>
-            <p>Deliciosa sobremesa com café e creme mascarpone.</p>
-            <p class="preco">R$ 18,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Tiramisù">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Tiramisù</h3>
-            <p>Deliciosa sobremesa com café e creme mascarpone.</p>
-            <p class="preco">R$ 18,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Tiramisù">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Tiramisù</h3>
-            <p>Deliciosa sobremesa com café e creme mascarpone.</p>
-            <p class="preco">R$ 18,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Tiramisù">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Tiramisù</h3>
-            <p>Deliciosa sobremesa com café e creme mascarpone.</p>
-            <p class="preco">R$ 18,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Tiramisù">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Tiramisù</h3>
-            <p>Deliciosa sobremesa com café e creme mascarpone.</p>
-            <p class="preco">R$ 18,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Tiramisù">
-          </div>
-        </div>
-        <!-- Repita mais 5 itens -->
-        <!-- ... -->
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Seção Bebidas -->
-  <section id="bebidas">
-    <div class="container">
-      <h2>Bebidas</h2>
-      <div class="grid">
-        <!-- 7 itens de Bebidas -->
-        <div class="item">
-          <div class="descricao">
-            <h3>Vinho Tinto</h3>
-            <p>Vinho tinto seco italiano.</p>
-            <p class="preco">R$ 45,00</p>
+    <!-- Seção Bebidas -->
+    <section id="bebidas" class="section-menu">
+      <div class="container">
+        <h2>Bebidas</h2>
+        <div class="grid">
+          <div class="item">
+            <div class="details">
+              <h3>Vinho Tinto</h3>
+              <p>Vinho tinto seco italiano.</p>
+              <p class="price">R$ 45,00</p>
+            </div>
+            <div class="image">
+              <img src="img/download.jpg" alt="Vinho Tinto">
+            </div>
           </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Vinho Tinto">
+          <div class="item">
+            <div class="details">
+              <h3>Água com Gás</h3>
+              <p>Água mineral com gás.</p>
+              <p class="price">R$ 10,00</p>
+            </div>
+            <div class="image">
+              <img src="img/download.jpg" alt="Água com Gás">
+            </div>
           </div>
+          <div class="item">
+            <div class="details">
+              <h3>Água com Gás</h3>
+              <p>Água mineral com gás.</p>
+              <p class="price">R$ 10,00</p>
+            </div>
+            <div class="image">
+              <img src="img/download.jpg" alt="Água com Gás">
+            </div>
+          </div>
+          <!-- Adicione mais itens conforme necessário -->
         </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Vinho Tinto</h3>
-            <p>Vinho tinto seco italiano.</p>
-            <p class="preco">R$ 45,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Vinho Tinto">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Vinho Tinto</h3>
-            <p>Vinho tinto seco italiano.</p>
-            <p class="preco">R$ 45,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Vinho Tinto">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Vinho Tinto</h3>
-            <p>Vinho tinto seco italiano.</p>
-            <p class="preco">R$ 45,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Vinho Tinto">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Vinho Tinto</h3>
-            <p>Vinho tinto seco italiano.</p>
-            <p class="preco">R$ 45,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Vinho Tinto">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Vinho Tinto</h3>
-            <p>Vinho tinto seco italiano.</p>
-            <p class="preco">R$ 45,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Vinho Tinto">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Vinho Tinto</h3>
-            <p>Vinho tinto seco italiano.</p>
-            <p class="preco">R$ 45,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Vinho Tinto">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Vinho Tinto</h3>
-            <p>Vinho tinto seco italiano.</p>
-            <p class="preco">R$ 45,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Vinho Tinto">
-          </div>
-        </div>
-        <div class="item">
-          <div class="descricao">
-            <h3>Vinho Tinto</h3>
-            <p>Vinho tinto seco italiano.</p>
-            <p class="preco">R$ 45,00</p>
-          </div>
-          <div class="imagem">
-            <img src="https://via.placeholder.com/120" alt="Vinho Tinto">
-          </div>
-        </div>
-        <!-- Repita mais 6 itens -->
-        <!-- ... -->
       </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Menu Italiano. Todos os direitos reservados.</p>
     </div>
-  </section>
+  </footer>
+
   <script src="script.js"></script>
-</body> 
 </body>
 </html>

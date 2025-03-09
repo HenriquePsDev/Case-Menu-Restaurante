@@ -1,207 +1,268 @@
-/* Reset básico */
-body, h2, h3, p {
+/* Reset e configurações básicas */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+body {
   font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #333;
 }
 
-/* Barra de navegação */
-nav {
+/* Container padrão */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Navbar */
+.navbar {
   background: #d32f2f;
-  padding: 15px;
   position: fixed;
   top: 0;
   width: 100%;
-  text-align: center;
   z-index: 1000;
 }
-
-nav ul {
-  list-style: none;
-  padding: 0;
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
-nav ul li {
-  display: inline;
-  margin: 0 15px;
-}
-
-nav ul li a {
-  color: white;
+.logo {
+  color: #fff;
+  font-size: 1.5rem;
   text-decoration: none;
-  font-size: 18px;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  cursor: grab;
+}
+.nav-links::-webkit-scrollbar {
+  display: none;
+}
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  transition: background 0.3s;
+}
+.nav-links li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
 }
 
-/* Container unificado para títulos e grids */
-.container {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 20px;
+/* Botão do menu (mobile) */
+.menu-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  display: none;
+  cursor: pointer;
 }
-
-/* Seções gerais */
-section {
-  margin-top: 100px;  /* Espaço para compensar a nav fixa */
-}
-
-/* Seção de Destaques */
-#destaques {
+.hamburger {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #fff;
   position: relative;
-  z-index: 1;
-  /* Use a margem padrão de section (100px) para empurrar a seção para baixo,
-     evitando que fique atrás da nav */
+}
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  left: 0;
+}
+.hamburger::before {
+  top: -8px;
+}
+.hamburger::after {
+  top: 8px;
 }
 
-/* Títulos das categorias */
+/* Dropdown menu para mobile */
+.dropdown-menu {
+  display: none;
+  background: #fff;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  width: 200px;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.dropdown-menu.active {
+  display: block;
+}
+.dropdown-menu ul {
+  list-style: none;
+}
+.dropdown-menu li a {
+  display: block;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px solid #eee;
+}
+.dropdown-menu li a:hover {
+  background: #f4f4f4;
+}
+
+/* Espaço para o conteúdo principal (navbar fixa) */
+main {
+  margin-top: 80px;
+}
+
+/* Títulos das seções */
 section h2 {
+  font-size: 2rem;
   margin-bottom: 20px;
-  text-align: left;
+  color: #d32f2f;
 }
 
-/* Grid de itens (usado em Entradas, Pratos, etc.) */
-.grid {
+/* Carrossel (Destaques) */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 40px;
+}
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.slide {
+  min-width: 100%;
+  transition: transform 0.3s ease;
+  user-select: none;
+}
+@media (min-width: 769px) {
+  .slide {
+    min-width: calc((100% - 40px) / 3);
+    margin-right: 20px;
+  }
+}
+/* Imagens do carrossel com altura fixa (alterado de 200px para 300px) */
+.slide img {
+  width: 100%;
+  height: 300px;
+  display: block;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Botões do carrossel */
+.carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  border-radius: 50%;
+}
+.carousel .prev {
+  left: 10px;
+}
+.carousel .next {
+  right: 10px;
+}
+
+/* Grid para itens do menu – Layout horizontal */
+.section-menu .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
+  gap: 20px;
 }
 
-/* Itens da grid */
-.item {
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+  .section-menu .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.section-menu .item {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background: #f5f5f5;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 600px;
-  height: 180px;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  min-height: 180px;
+}
+.section-menu .item:hover {
+  transform: translateY(-5px);
 }
 
-/* Estrutura interna do item */
-.item .descricao {
+/* Área de detalhes */
+.item .details {
   flex: 1;
-  padding-right: 20px;
-  text-align: left;
+  padding: 15px;
 }
-
-.item .descricao h3 {
+.item .details h3 {
+  font-size: 1.2rem;
   margin-bottom: 10px;
-  font-size: 18px;
+  color: #333;
 }
-
-.item .descricao p {
+.item .details p {
+  font-size: 0.9rem;
   margin-bottom: 10px;
-  font-size: 14px;
 }
-
-.item .preco {
-  font-size: 16px;
+.item .details .price {
   font-weight: bold;
   color: #d32f2f;
 }
 
-.item .imagem {
-  flex: 0 0 120px;
+/* Área da imagem */
+.item .image {
+  width: 150px;
+  height: 150px;
+  margin: 0 15px;
+  border-left: 1px solid #ddd;
+  overflow: hidden;
 }
-
-.item .imagem img {
+.item .image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
-}
-
-/* Responsividade para as grids */
-@media (max-width: 768px) {
-  .grid {
-      grid-template-columns: 1fr;
-  }
-  .item {
-      flex-direction: column;
-      text-align: center;
-      width: 100%;
-      height: auto;
-  }
-  .item .descricao {
-      padding-right: 0;
-      margin-bottom: 10px;
-  }
-  .item .imagem {
-      margin-bottom: 10px;
-  }
-}
-
-/* ========================= */
-/* Estilos do Carrossel (Destaques) */
-/* ========================= */
-
-/* Seção Destaques */
-#destaques {
-  position: relative;
-  z-index: 1;
-  margin-top: 100px; /* Garante que fique abaixo da nav */
-}
-
-/* Carrossel */
-.carrossel {
-  max-width: 1240px;
-  margin: 0 auto 20px;
-  position: relative;
-  overflow: hidden;
-}
-
-.slides {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-/* Mobile: 1 slide por vez */
-@media (max-width: 768px) {
-  .slide {
-      min-width: 100%;
-  }
-}
-
-/* Desktop: 3 slides por vez com espaçamento */
-@media (min-width: 769px) {
-  /* Define o gap entre os slides */
-  .slides {
-      gap: 20px;
-  }
-  /* Cada slide terá largura considerando o gap total entre os 3 itens */
-  .slide {
-      min-width: calc((100% - 40px) / 3);
-  }
-}
-
-.slide {
-  box-sizing: border-box;
-}
-
-.slide img {
-  width: 100%;
   display: block;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+.item:hover .image img {
+  transform: scale(1.05);
 }
 
-/* Botões do carrossel */
-.carrossel button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.5);
-  border: none;
-  color: white;
-  padding: 10px;
-  cursor: pointer;
-  font-size: 18px;
-  border-radius: 50%;
+/* Footer */
+footer {
+  background: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
 }
 
-.carrossel .prev {
-  left: 10px;
-}
-
-.carrossel .next {
-  right: 10px;
+/* Responsividade para Navbar */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .menu-btn {
+    display: block;
+  }
 }
