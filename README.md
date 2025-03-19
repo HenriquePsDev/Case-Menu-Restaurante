@@ -7,6 +7,10 @@ Este desafio, o case de um menu de restaurante, foi proposto pelo professor **Le
 ✔️ O menu  
 ✔️ O design da página  
 
+👨‍💻 **Desenvolvido por:**  
+- **Henrique Pereira da Silva** - RA: 24214444-2
+- **Caio Yukio Sasaki** - RA: 24214877-2  
+
 ---
 
 ## 2️⃣ Objetivo  
