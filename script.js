@@ -1,5 +1,92 @@
 document.addEventListener('DOMContentLoaded', function() {
-  /* --- Navbar: Menu Dropdown para Mobile --- */
+  // ==============================
+  // Sistema de Pedidos (Sacola)
+  // ==============================
+  let order = [];
+
+  // Função para atualizar a lista de pedidos no modal (sacola)
+  function updateOrderList() {
+    const orderList = document.getElementById('order-list');
+    orderList.innerHTML = ''; // limpa a lista
+    let total = 0;
+    
+    order.forEach((item, index) => {
+      const li = document.createElement('li');
+      li.textContent = `${item.name} - R$ ${item.price.toFixed(2)}`;
+      
+      // Botão para excluir o pedido
+      const deleteBtn = document.createElement('button');
+      deleteBtn.textContent = 'Excluir';
+      deleteBtn.classList.add('delete-item');
+      deleteBtn.style.marginLeft = '10px';
+      deleteBtn.addEventListener('click', function(e) {
+         e.stopPropagation();
+         order.splice(index, 1);
+         updateOrderList();
+      });
+      
+      li.appendChild(deleteBtn);
+      orderList.appendChild(li);
+      total += item.price;
+    });
+    
+    document.getElementById('order-total').textContent = total.toFixed(2);
+  }
+
+  // Adiciona evento para os botões "Adicionar à Sacola"
+  const addButtons = document.querySelectorAll('.add-to-order');
+  addButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      // Pega os detalhes do item (nome e preço)
+      const details = this.parentElement;
+      const name = details.querySelector('h3').textContent;
+      // Obtém o preço usando o atributo data-price
+      const price = parseFloat(details.querySelector('.price').getAttribute('data-price'));
+      
+      order.push({ name, price });
+      updateOrderList();
+      alert(`"${name}" adicionado à sacola!`);
+      // Abre o modal automaticamente após adicionar
+      orderModal.style.display = 'block';
+    });
+  });
+
+  // Modal do pedido (sacola)
+  const orderModal = document.getElementById('order-modal');
+  const orderBtn = document.querySelector('.order-btn');
+  const closeModal = document.querySelector('.modal-content .close');
+
+  orderBtn.addEventListener('click', () => {
+    orderModal.style.display = 'block';
+  });
+
+  closeModal.addEventListener('click', () => {
+    orderModal.style.display = 'none';
+  });
+
+  // Fecha o modal se clicar fora do conteúdo
+  window.addEventListener('click', (event) => {
+    if (event.target === orderModal) {
+      orderModal.style.display = 'none';
+    }
+  });
+
+  // Evento para "Enviar Pedido"
+  document.getElementById('submit-order').addEventListener('click', function() {
+    if (order.length === 0) {
+      alert('Sua sacola está vazia!');
+      return;
+    }
+    // Integração com backend ou API pode ser feita aqui.
+    alert('Pedido enviado com sucesso!');
+    order = []; // limpa o pedido
+    updateOrderList();
+    orderModal.style.display = 'none';
+  });
+
+  // ==============================
+  // Navbar: Menu Dropdown para Mobile
+  // ==============================
   const menuBtn = document.querySelector('.menu-btn');
   const dropdownMenu = document.querySelector('.dropdown-menu');
 
@@ -14,7 +101,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  /* --- Carrossel de Destaques --- */
+  // ==============================
+  // Carrossel de Destaques
+  // ==============================
   const slidesContainer = document.querySelector('.slides');
   const slides = document.querySelectorAll('.slide');
   const prevBtn = document.querySelector('.carousel .prev');
@@ -25,10 +114,8 @@ document.addEventListener('DOMContentLoaded', function() {
   function updateCarousel() {
     const slideWidth = slides[0].offsetWidth + 20; // inclui o gap de 20px
     if (window.innerWidth >= 769) {
-      // Para desktop, usa a largura do slide + gap de 20px
       slidesContainer.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
     } else {
-      // Para mobile, usa o transform baseado em porcentagem
       slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
   }
@@ -52,13 +139,11 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   prevBtn.addEventListener('click', () => {
-    // Se estamos no primeiro slide, volta para o último slide
     currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
     updateCarousel();
   });
 
   nextBtn.addEventListener('click', () => {
-    // Se estamos no último slide, volta para o primeiro slide
     currentIndex = (currentIndex === totalSlides - 1) ? 0 : currentIndex + 1;
     updateCarousel();
   });
@@ -69,7 +154,9 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCarousel();
   }, 5000);
 
-  /* --- Suporte para Swipe (Touch) no Carrossel --- */
+  // ==============================
+  // Suporte para Swipe (Touch) no Carrossel
+  // ==============================
   let startX = 0;
   let isTouchDragging = false;
 
@@ -96,7 +183,9 @@ document.addEventListener('DOMContentLoaded', function() {
     isTouchDragging = false;
   });
 
-  /* --- Suporte para Drag com o Mouse no Carrossel --- */
+  // ==============================
+  // Suporte para Drag com o Mouse no Carrossel
+  // ==============================
   let isMouseDragging = false;
   let mouseStartX = 0;
 
@@ -127,7 +216,9 @@ document.addEventListener('DOMContentLoaded', function() {
     isMouseDragging = false;
   });
 
-  /* --- Suporte para Swipe Horizontal nos nav-links --- */
+  // ==============================
+  // Suporte para Swipe Horizontal nos nav-links
+  // ==============================
   const navLinks = document.querySelector('.nav-links');
   let navStartX = 0;
   let navIsDragging = false;
